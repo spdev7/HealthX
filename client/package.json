@@ -1,16 +1,13 @@
 {
-  "name": "healthx",
-  "private": true,
+  "name": "client",
   "version": "0.0.0",
+  "private": true,
   "type": "module",
-  "workspaces": [
-    "client",
-    "server"
-  ],
   "scripts": {
-    "dev": "yarn workspace client dev",
-    "dev:server": "yarn workspace server dev",
-    "dev:all": "concurrently \"yarn dev\" \"yarn dev:server\""
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",

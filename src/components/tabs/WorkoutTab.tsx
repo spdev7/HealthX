@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
 import type { WorkoutEntry } from '../../types';
+import { WorkoutSelector } from '../workout/WorkoutSelector';
 
 export const WorkoutTab = () => {
   const [entries, setEntries] = useState<WorkoutEntry[]>([]);
@@ -27,7 +28,7 @@ export const WorkoutTab = () => {
           </div>
         </div>
       </div>
-
+      <WorkoutSelector />
       <div className="space-y-4">
         {entries.map((entry) => (
           <div key={entry.id} className="bg-white p-4 rounded-lg shadow">

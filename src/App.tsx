@@ -1,3 +1,5 @@
+// ... (keep existing imports)
+// import { TrackingTab } from './components/tabs/TrackingTab';
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
@@ -7,28 +9,13 @@ import { WorkoutTab } from './components/tabs/WorkoutTab';
 import { StepsTab } from './components/tabs/StepsTab';
 import { SleepTab } from './components/tabs/SleepTab';
 import { MedicineTab } from './components/tabs/MedicineTab';
+import { TrackingTab} from './components/tabs/TrackingTab';
+import { ProfileTab} from './components/tabs/ProfileTab';
+import { JourneyTab} from './components/tabs/JourneyTab';
 
-function App() {
-  const [activeTab, setActiveTab] = useState('home');
-
-  const getTabTitle = () => {
-    switch (activeTab) {
-      case 'home':
-        return 'Progress Overview';
-      case 'food':
-        return 'Food Tracking';
-      case 'workout':
-        return 'Workout Tracking';
-      case 'steps':
-        return 'Steps Tracking';
-      case 'sleep':
-        return 'Sleep Tracking';
-      case 'medicine':
-        return 'Medicine Tracking';
-      default:
-        return 'Fitness Tracker';
-    }
-  };
+export default function App() {
+   const [activeTab, setActiveTab] = useState('home');
+  // ... (keep existing state and functions)
 
   const renderActiveTab = () => {
     switch (activeTab) {
@@ -38,26 +25,26 @@ function App() {
         return <FoodTab />;
       case 'workout':
         return <WorkoutTab />;
-      case 'steps':
-        return <StepsTab />;
-      case 'sleep':
-        return <SleepTab />;
-      case 'medicine':
-        return <MedicineTab />;
+      case 'tracking':
+        return <TrackingTab />;
+      case 'journey':
+        return <JourneyTab />;
+      case 'profile':
+        return <ProfileTab />;
       default:
         return null;
     }
   };
 
-  return (
+
+      return (
     <div className="min-h-screen bg-gray-50">
-      <Header title={getTabTitle()} />
+      {/* <Header title={getTabTitle()} /> */}
       <main className="pt-16 pb-20">
         {renderActiveTab()}
       </main>
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
     </div>
   );
+  // ... (rest of the component remains the same)
 }
-
-export default App;

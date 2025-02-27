@@ -1,15 +1,15 @@
 import React from 'react';
-import { Activity, Utensils, Moon, Pill, Home, User } from 'lucide-react';
+import { 
+  LayoutDashboard, 
+  Utensils, 
+  Dumbbell, 
+  Trophy,
+  User,
+  CheckSquare
+} from 'lucide-react';
 
-// Props for NavItem component
-interface NavItemProps {
-  icon: React.ReactNode; // Icon component
-  label?: string;         // Label text
-  active: boolean;       // Is the tab active
-  onClick: () => void;   // Click handler
-}
+// ... (keep existing NavItem component)
 
-// Individual navigation item
 const NavItem: React.FC<NavItemProps> = ({ icon, label, active, onClick }) => (
   <button
     onClick={onClick}
@@ -31,22 +31,15 @@ const NavItem: React.FC<NavItemProps> = ({ icon, label, active, onClick }) => (
   </button>
 );
 
-// Props for the Navigation component
-interface NavigationProps {
-  activeTab: string;                 // Currently active tab
-  setActiveTab: (tab: string) => void; // Setter for the active tab
-}
-
-// Main navigation component
-export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab }) => {
+export const Navigation = ({ activeTab, setActiveTab }: {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}) => {
   return (
-    <nav
-      className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 
-      rounded-tl-2xl rounded-tr-2xl shadow-lg"
-    >
-      <div className="flex justify-between items-center max-w-md mx-auto">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 py-2 rounded-t-xl shadow-lg">
+      <div className="grid grid-cols-6 gap-1 max-w-md mx-auto">
         <NavItem
-          icon={<Home size={24} />}
+          icon={<LayoutDashboard size={24} />}
           label="Home"
           active={activeTab === 'home'}
           onClick={() => setActiveTab('home')}
@@ -58,22 +51,22 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
           onClick={() => setActiveTab('food')}
         />
         <NavItem
-          icon={<Activity size={24} />}
+          icon={<Dumbbell size={24} />}
           label="Workout"
           active={activeTab === 'workout'}
           onClick={() => setActiveTab('workout')}
         />
         <NavItem
-          icon={<Moon size={24} />}
-          label="Sleep"
-          active={activeTab === 'sleep'}
-          onClick={() => setActiveTab('sleep')}
+          icon={<CheckSquare size={24} />}
+          label="Tracking"
+          active={activeTab === 'tracking'}
+          onClick={() => setActiveTab('tracking')}
         />
         <NavItem
-          icon={<Pill size={24} />}
-          label="Meds"
-          active={activeTab === 'medicine'}
-          onClick={() => setActiveTab('medicine')}
+          icon={<Trophy size={24} />}
+          label="Journey"
+          active={activeTab === 'journey'}
+          onClick={() => setActiveTab('journey')}
         />
         <NavItem
           icon={<User size={24} />}

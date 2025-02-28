@@ -1,24 +1,17 @@
 {
-  "name": "healthx-server",
-  "version": "0.0.0",
-  "private": true,
-  "main": "src/index.ts",
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
-    "build": "tsc -p tsconfig.build.json",
-    "start": "node dist/index.js"
+    "start": "node index.js",
+    "dev": "nodemon --env-file=.env --experimental-strip-types --experimental-sqlite  index.js"
   },
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5",
-    "body-parser": "^1.20.2"
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "ts-node": "^10.9.1",
-    "@types/node": "^20.4.0",
-    "@types/express": "^4.17.17",
-    "@types/cors": "^2.8.12",
-    "@types/body-parser": "^1.20.0"
+    "nodemon": "^2.0.20"
   }
 }

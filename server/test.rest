@@ -1,0 +1,11 @@
+
+GET http://localhost:3000/api/v1/data
+
+### Create a new entry
+POST http://localhost:3000/api/v1/data
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "age": 30
+}

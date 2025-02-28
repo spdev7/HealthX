@@ -33,11 +33,12 @@ export const isSameDay = (date1: Date, date2: Date): boolean => {
   );
 };
 
-export const formatDate = (date: Date): string => {
+export const formatDate = (date: Date): string => { 
   return date.toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
-    month: 'long',
+    month: 'long', 
     day: 'numeric',
   });
 };
+

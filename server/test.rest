@@ -9,3 +9,13 @@ Content-Type: application/json
   "name": "John Doe",
   "age": 30
 }
+
+
+###
+POST http://localhost:4000/auth/regiser
+Content-Type: application/json
+
+{
+    "username": "saurav@gmail.com",
+    "password": "password"
+}

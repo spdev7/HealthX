@@ -3,6 +3,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import authRoutes from "./routes/authRoutes.js";
 
 // Load environment variables from .env file
 config();
@@ -13,16 +14,19 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
+
+// Middleware
 app.use(json());
+
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-app.get("/", (req, res) => {
-  // Serve frontend build
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+// app.get("/", (req, res) => {
+//   // Serve frontend build
+//   res.sendFile(path.join(__dirname, "dist", "index.html"));
 
-  // res.sendFile(__dirname + "/index.html");
-  // Middleware
-});
+//   // res.sendFile(__dirname + "/index.html");
+//   // Middleware
+// });
 // Routes
 app.get("/", (req, res) => {
   console.log(req.method);
@@ -44,6 +48,7 @@ app.post("/api/v1/data", (req, res) => {
   res.sendStatus(201);
 });
 
+app.use("/auth", authRoutes);
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -4,12 +4,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon --env-file=.env --experimental-strip-types --experimental-sqlite  index.js"
+    "dev": "nodemon --env-file=.env --experimental-strip-types index.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
+    "@prisma/client": "^6.4.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "pg": "^8.13.3",
+    "prisma": "^6.4.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

@@ -13,24 +13,25 @@ export const CalendarDay = ({ date, status, isToday, onClick }: CalendarDayProps
   const getStatusColor = () => {
     switch (status.type) {
       case 'success':
-        return 'bg-green-100 text-green-800';
+        return 'bg-spotify-900 text-spotify-300';
       case 'partial':
-        return 'bg-yellow-100 text-yellow-800';
+        return 'bg-discord-600 text-yellow-300';
       case 'missed':
-        return 'bg-red-100 text-red-800';
+        return 'bg-discord-600 text-red-400';
       default:
-        return 'bg-gray-100 text-gray-600';
+        return 'bg-discord-700 text-discord-300';
     }
   };
 
+  
   const getStatusIcon = () => {
     switch (status.type) {
       case 'success':
-        return <Check size={14} className="text-green-600" />;
+        return <Check size={14} className="text-spotify-500" />;
       case 'partial':
-        return <Check size={14} className="text-yellow-600" />;
+        return <Check size={14} className="text-yellow-400" />;
       case 'missed':
-        return <X size={14} className="text-red-600" />;
+        return <X size={14} className="text-red-500" />;
       default:
         return null;
     }
@@ -42,11 +43,11 @@ export const CalendarDay = ({ date, status, isToday, onClick }: CalendarDayProps
       className={`
         relative w-full aspect-square rounded-xl flex flex-col items-center justify-center p-1
         ${getStatusColor()}
-        ${isToday ? 'ring-2 ring-blue-500' : ''}
-        hover:opacity-90 transition-opacity shadow-sm
+        ${isToday ? 'ring-2 ring-spotify-500' : ''}
+        hover:opacity-90 transition-opacity
       `}
     >
-      <span className="text-xs font-medium">{date.getDate()}</span>
+      <span className="text-2xl font-3xl">{date.getDate()}</span>
       {getStatusIcon()}
       {status.details && (
         <div className="absolute bottom-1 left-1 right-1 flex justify-center gap-0.5">

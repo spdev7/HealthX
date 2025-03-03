@@ -9,14 +9,14 @@ interface CalendarHeaderProps {
 
 export const CalendarHeader = ({ currentDate, onPrevMonth, onNextMonth }: CalendarHeaderProps) => (
   <div className="flex items-center justify-between mb-4">
-    <button onClick={onPrevMonth} className="p-2 hover:bg-gray-100 rounded-full">
+    <button onClick={onPrevMonth} className="p-2 hover:bg-discord-100 rounded-full">
       <ChevronLeft size={20} />
     </button>
-    <h2 className="text-lg font-semibold">
+    <h2 className="text-lg font-display font-semibold text-white">
       {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
     </h2>
-    <button onClick={onNextMonth} className="p-2 hover:bg-gray-100 rounded-full">
-      <ChevronRight size={20} />
+    <button onClick={onNextMonth} className="p-2 hover:bg-discord-600 rounded-full">
+      <ChevronRight size={20} className="text-discord-300"/>
     </button>
   </div>
 );

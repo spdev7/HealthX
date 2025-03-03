@@ -7,6 +7,7 @@ import { WorkoutTab } from './components/tabs/WorkoutTab';
 import { StepsTab } from './components/tabs/StepsTab';
 import { SleepTab } from './components/tabs/SleepTab';
 import { MedicineTab } from './components/tabs/MedicineTab';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -50,8 +51,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 bg-background">
+    
       <Header title={getTabTitle()} />
+      <ThemeToggle  />
       <main className="pt-16 pb-20">
         {renderActiveTab()}
       </main>
